@@ -1,0 +1,26 @@
+---
+layout: default
+---
+
+<!-- Recent Posts -->
+<ul class="post-list">
+    {% for post in site.posts %}
+    <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <h3>
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h3>
+    </li>
+    {% endfor %}
+</ul>
+
+<!-- Tags List -->
+<div class="tag-cloud">
+    <h2>All Tags</h2>
+    <div>
+        {% assign sorted_tags = site.tags | sort %}
+        {% for tag in sorted_tags %}
+        <a href="#" class="tag" style="pointer-events: none;">#{{ tag[0] }}</a>
+        {% endfor %}
+    </div>
+</div>

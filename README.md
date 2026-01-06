@@ -1,3 +1,3 @@
-# redcorr.github.io
+# RedCorr's Blog
 
-Blogs for learn.
+记录一些文字。

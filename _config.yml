@@ -1,0 +1,14 @@
+title: My Collection
+description: >-
+  A minimalist blog for book and movie reviews.
+baseurl: ""
+url: "https://redcorr.github.io"
+theme: null
+
+# Build settings
+markdown: kramdown
+permalink: /:year/:month/:day/:title/
+
+exclude:
+  - Gemfile
+  - Gemfile.lock

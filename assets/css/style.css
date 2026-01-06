@@ -1,0 +1,130 @@
+:root {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --link-color: #000000;
+  --meta-color: #828282;
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+header {
+  margin-bottom: 3rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
+}
+
+header h1 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+header h1 a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+nav {
+  margin-top: 0.5rem;
+}
+
+nav a {
+  margin-right: 15px;
+  color: var(--meta-color);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+nav a:hover {
+  color: var(--link-color);
+}
+
+h1, h2, h3 {
+  line-height: 1.2;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+.post-meta {
+  color: var(--meta-color);
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+.post-title {
+  margin-top: 0.2rem;
+  font-size: 2rem;
+}
+
+.post-content {
+  margin-top: 2rem;
+}
+
+.post-list {
+  list-style: none;
+  padding: 0;
+}
+
+.post-list li {
+  margin-bottom: 2rem;
+}
+
+.post-list h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.tag-cloud {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid #eee;
+}
+
+.tag-cloud h2 {
+  font-size: 1rem;
+  color: var(--meta-color);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.tag {
+  display: inline-block;
+  background: #f4f4f4;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.tag:hover {
+  background: #e0e0e0;
+}
+
+code {
+  background-color: #f4f4f4;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-family: monospace;
+}
