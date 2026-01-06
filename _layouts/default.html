@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ page.title | default: site.title }}</title>
   <meta name="description" content="{{ page.description | default: site.description }}">
-  <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
+  <link rel="stylesheet" href="{{ " /assets/css/style.css" | relative_url }}">
 </head>
+
 <body>
 
   <header>
-    <h1><a href="{{ "/" | relative_url }}">{{ site.title }}</a></h1>
-    <nav>
-      <a href="{{ "/" | relative_url }}">Home</a>
-      <!-- Add more links here if needed, e.g. <a href="/about">About</a> -->
-    </nav>
+    <h1><a href="{{ " /" | relative_url }}">{{ site.title }}</a></h1>
   </header>
 
   <main>
@@ -26,4 +24,5 @@
   </footer>
 
 </body>
+
 </html>
