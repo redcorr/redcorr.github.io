@@ -2,10 +2,21 @@
 layout: default
 ---
 
+<!-- Tags List (moved to top) -->
+<div class="tag-cloud">
+    <div>
+        <a href="#" class="tag active" data-tag="all">All</a>
+        {% assign sorted_tags = site.tags | sort %}
+        {% for tag in sorted_tags %}
+        <a href="#tag-{{ tag[0] }}" class="tag" data-tag="{{ tag[0] }}">{{ tag[0] }}</a>
+        {% endfor %}
+    </div>
+</div>
+
 <!-- Recent Posts -->
 <ul class="post-list">
     {% for post in site.posts %}
-    <li>
+    <li data-tags="{{ post.tags | join: ',' }}">
         <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
         <h3>
             <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
@@ -14,13 +25,47 @@ layout: default
     {% endfor %}
 </ul>
 
-<!-- Tags List -->
-<div class="tag-cloud">
-    <h2>All Tags</h2>
-    <div>
-        {% assign sorted_tags = site.tags | sort %}
-        {% for tag in sorted_tags %}
-        <a href="#" class="tag" style="pointer-events: none;">#{{ tag[0] }}</a>
-        {% endfor %}
-    </div>
-</div>
+<script>
+    (function () {
+        const tags = document.querySelectorAll('.tag');
+        const posts = document.querySelectorAll('.post-list li');
+
+        // Handle tag clicks
+        tags.forEach(tag => {
+            tag.addEventListener('click', function (e) {
+                e.preventDefault();
+                const selectedTag = this.getAttribute('data-tag');
+
+                // Update active state
+                tags.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+
+                // Filter posts
+                posts.forEach(post => {
+                    const postTags = post.getAttribute('data-tags');
+                    if (selectedTag === 'all' || postTags.includes(selectedTag)) {
+                        post.style.display = '';
+                    } else {
+                        post.style.display = 'none';
+                    }
+                });
+
+                // Update URL hash
+                if (selectedTag !== 'all') {
+                    window.location.hash = 'tag-' + selectedTag;
+                } else {
+                    history.pushState("", document.title, window.location.pathname);
+                }
+            });
+        });
+
+        // Handle initial load with hash
+        const hash = window.location.hash.replace('#tag-', '');
+        if (hash) {
+            const targetTag = document.querySelector(`[data-tag="${hash}"]`);
+            if (targetTag) {
+                targetTag.click();
+            }
+        }
+    })();
+</script>
